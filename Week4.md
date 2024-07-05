@@ -1,5 +1,5 @@
-### Parameters of Navigation
-·Move_base
+## Parameters of Navigation
+**·Move_base**
 
 shutdown_costmaps: false
 
@@ -34,7 +34,7 @@ oscillation_distance: 0.2
 Oscillation distance threshold specifies the minimum distance used to detect oscillatory behavior. If the robot moves back and forth within 0.2 meters, the system may identify it as oscillating.
 These parameters significantly influence the navigation behavior and performance of the robot. Adjusting these parameters can optimize path planning and path tracking during navigation, enhancing the robot's capability to navigate through complex environments effectively.
 
-·Global Costmap
+**·Global Costmap**
 
 global_frame: map
 
@@ -64,7 +64,7 @@ The settings of these parameters affect the functionality and performance of the
 
 Local Costmap
 
-global_frame: odom
+**global_frame: odom**
 
 The `global_frame` specifies the global coordinate system used by the local costmap. Here, `odom` indicates that the data of the local costmap will be represented and processed in the coordinate system named "odom." This differs from the global costmap, which typically uses the `map` coordinate system, as `odom` is closer to the robot's motion trajectory rather than the entire map.
 
@@ -106,7 +106,7 @@ The `resolution` defines the resolution of the costmap, indicating the size of e
 
 These parameters affect the functionality and performance of the local costmap in ROS navigation, ensuring the robot can effectively perceive its immediate surroundings and perform real-time obstacle avoidance.
 
-Dynamic Writing Approach Planner
+**Dynamic Writing Approach Planner**
 
 1. Robot Configuration Parameters
    - `max_vel_x`: Maximum linear velocity of the robot along the x-axis (forward direction), in meters per second (m/s).
@@ -139,7 +139,7 @@ Dynamic Writing Approach Planner
    - `publish_traj_pc`: Whether to publish trajectory point cloud for debugging.
    - `publish_cost_grid_pc`: Whether to publish cost grid point cloud for debugging.
 
-Trajectory Planner 
+**Trajectory Planner** 
 Robot Configuration Parameters
 max_vel_x: Maximum linear velocity of the robot along the x-axis (forward direction), in meters per second (m/s).
 min_vel_x: Minimum linear velocity of the robot along the x-axis, in meters per second (m/s).
@@ -160,7 +160,7 @@ vx_samples: Number of linear velocity samples generated during forward simulatio
 vtheta_samples: Number of angular velocity samples generated during forward simulation.
 sim_granularity: Granularity or resolution of the forward simulation, used for path generation, in meters.
 
-Costmap Common
+**Costmap Common**
 
 Range Parameters
 obstacle_range: Obstacle range, in meters (m). Objects detected by the sensor within this range will be considered as obstacles.
