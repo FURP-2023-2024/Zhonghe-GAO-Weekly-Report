@@ -1,106 +1,107 @@
 ## Parameters of Navigation
+
 **·Move_base**
 
-shutdown_costmaps: false
+```shutdown_costmaps: false```
 
 This parameter controls whether costmaps are shut down when the robot stops moving. Costmaps are maps showing environmental information around the robot, including obstacles and navigable paths. Here, false means costmaps won't automatically shut down when the robot stops, keeping them active for future navigation.
 
-controller_frequency: 10.0
+```controller_frequency: 10.0```
 
 Controller frequency dictates how many times per second the controller executes. Here, the controller executes at a rate of 10 times per second for path tracking and motion control.
 
-planner_patience: 5.0
+```planner_patience: 5.0```
 
 Planner patience specifies the number of consecutive planning failures the planner tolerates. If planning fails consecutively more than 5 times, move_base considers executing recovery behaviors.
 
-controller_patience: 15.0
+```controller_patience: 15.0```
 
 Controller patience defines the number of consecutive path tracking failures the controller tolerates. If path tracking fails consecutively more than 15 times, move_base considers executing recovery behaviors.
 
-conservative_reset_dist: 3.0
+```conservative_reset_dist: 3.0```
 
 Conservative reset distance specifies the minimum distance the robot should move during recovery behaviors. For instance, if the robot encounters issues during planning or path tracking, it might move at least 3 meters to attempt re-planning or re-tracking the path.
 
-planner_frequency: 5.0
+```planner_frequency: 5.0```
 
 Planner frequency dictates how many times per second the planner executes global path planning. Here, the planner executes at a rate of 5 times per second for global path planning.
 
-oscillation_timeout: 10.0
+```oscillation_timeout: 10.0```
 
 Oscillation timeout defines the time limit for detecting oscillatory behavior, where the robot repeats similar movements within a specified time frame. If the robot oscillates persistently for 10 seconds, move_base may execute recovery behaviors to correct its motion.
 
-oscillation_distance: 0.2
+```oscillation_distance: 0.2```
 
 Oscillation distance threshold specifies the minimum distance used to detect oscillatory behavior. If the robot moves back and forth within 0.2 meters, the system may identify it as oscillating.
 These parameters significantly influence the navigation behavior and performance of the robot. Adjusting these parameters can optimize path planning and path tracking during navigation, enhancing the robot's capability to navigate through complex environments effectively.
 
 **·Global Costmap**
 
-global_frame: map
+```global_frame: map```
 
 The `global_frame` specifies the coordinate system used by the global costmap. Here, `map` indicates that the data of the global costmap will be represented and processed in the coordinate system named "map."
 
-robot_base_frame: base_footprint
+```robot_base_frame: base_footprint```
 
 The `robot_base_frame` specifies the coordinate system of the robot's body. Here, `base_footprint` represents the robot's base coordinate system, which serves as the reference for the robot's movement.
 
-update_frequency: 10.0
+```update_frequency: 10.0```
 
 The `update_frequency` defines the update frequency of the global costmap, that is, the number of updates per second. Here, a setting of `10.0` means that the global costmap updates 10 times per second.
 
-publish_frequency: 10.0
+```publish_frequency: 10.0```
 
 The `publish_frequency` defines the frequency at which the global costmap publishes updates, that is, the number of updates published per second. Similar to `update_frequency`, here it is set to `10.0`, meaning updates are published 10 times per second.
 
-transform_tolerance: 0.5
+```transform_tolerance: 0.5```
 
 The `transform_tolerance` defines the maximum waiting time before receiving transform updates. This parameter ensures that the global costmap can remain stable for a certain period before receiving the latest transform data.
 
-static_map: true
+```static_map: true```
 
 The `static_map` specifies whether to use a static map as the basis for the global costmap. A static map is usually a pre-built environment map that contains information about static obstacles. Here, setting it to `true` means that the global costmap uses a static map.
 
 The settings of these parameters affect the functionality and performance of the global costmap in ROS navigation, ensuring that the robot can accurately perceive the environment and perform path planning to achieve safe and efficient navigation.
 
-Local Costmap
+**Local Costmap**
 
-**global_frame: odom**
+```global_frame: odom```
 
 The `global_frame` specifies the global coordinate system used by the local costmap. Here, `odom` indicates that the data of the local costmap will be represented and processed in the coordinate system named "odom." This differs from the global costmap, which typically uses the `map` coordinate system, as `odom` is closer to the robot's motion trajectory rather than the entire map.
 
-robot_base_frame: base_footprint
+```robot_base_frame: base_footprint```
 
 The `robot_base_frame` specifies the coordinate system of the robot's body, similar to the setting in the global costmap. Here, `base_footprint` represents the coordinate system of the robot's base, which serves as the reference for the robot's movement.
 
-update_frequency: 10.0
+```update_frequency: 10.0```
 
 The `update_frequency` defines the update frequency of the local costmap, indicating the number of updates per second. Here, a setting of `10.0` means the local costmap updates 10 times per second.
 
-publish_frequency: 10.0
+```publish_frequency: 10.0```
 
 The `publish_frequency` defines how often the local costmap publishes updates, measured in updates per second. Similar to `update_frequency`, it is set to `10.0`, meaning updates are published 10 times per second.
 
-transform_tolerance: 0.5
+```transform_tolerance: 0.5```
 
 The `transform_tolerance` defines the maximum wait time before receiving transform updates. This parameter ensures the local costmap remains stable for a certain period before receiving the latest transform data.
 
-static_map: false
+```static_map: false```
 
 The `static_map` specifies whether to use a static map as the basis for the local costmap. Here, setting it to `false` means the local costmap does not use a static map. In contrast, the global costmap typically uses a static map for long-term path planning, while the local costmap focuses more on real-time environment perception and dynamic obstacle avoidance.
 
-rolling_window: true
+```rolling_window: true```
 
 The `rolling_window` defines whether to enable the rolling window mode for constructing the local costmap. This mode allows the local costmap to dynamically update with the robot's movement, focusing only on a small surrounding area of the robot.
 
-width: 3
+```width: 3```
 
 The `width` defines the width of the local costmap in grid units. Here, setting it to `3` means the local costmap updates and perceives within a width of 3 grid units around the robot.
 
-height: 3
+```height: 3```
 
 The `height` defines the height of the local costmap in grid units. Setting it to `3` means the local costmap updates and perceives within a height of 3 grid units around the robot.
 
-resolution: 0.05
+```resolution: 0.05```
 
 The `resolution` defines the resolution of the costmap, indicating the size of each grid cell. Here, setting it to `0.05` means each grid cell has a side length of 0.05 meters, determining the perception accuracy of the costmap for environmental details.
 
