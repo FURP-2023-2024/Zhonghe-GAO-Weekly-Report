@@ -1,0 +1,18 @@
+In this week, we mainly use Turtlebot with Gazebo and Rviz to do with mapping and navigation. 
+Here are some key steps:
+Here are some key steps:
+Step1: Open the robot and the gazebo platform
+export TURTLEBOT3_MODEL=waffle
+roslaunch turtlebot3_gazebo turtlebot3_house.launch
+
+Step2: Applying cartographer algorithm to gazebo
+export TURTLEBOT3_MODEL=waffle
+
+
+roslaunch turtlebot3_slam turtlebot3_slam.launch slam_methods:=cartographer
+
+Step3: Use keypad to control the movement of robot
+export TURTLEBOT3_MODEL=waffle
+roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
+
+Step4:  Reserve the map.
