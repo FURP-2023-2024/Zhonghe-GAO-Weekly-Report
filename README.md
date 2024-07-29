@@ -7,4 +7,5 @@
 ## Week3: Turtlebot Simulation with SLAM
 ## Week4: Parameters of Navigation
 ## Week5&6: Unitree Robot Simulation and Control
+## week7: Intel NUC System Asseblance Installation
 
