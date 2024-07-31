@@ -1,0 +1,23 @@
+### Create a launch file to achieve the robot's auto navigation
+```
+<launch>
+    <!-- 启动底盘控制节点 -->
+    <node pkg="robort_base" type="roborts_base_node" name="roborts_base_node"/>
+
+    <!-- 启动坐标转换节点 -->
+    <node pkg="robort_base" type="chassis" name="chassis_node"/>
+
+    <!-- 启动Cartographer SLAM节点 -->
+    <include file="$(find catkin_ws_cartographer)/launch/cartographer.launch"/>
+
+    <!-- 加载地图 -->
+    <arg name="map_file" default="$(find my_robot_maps)/maps/my_map.yaml"/>
+    <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)"/>
+
+    <!-- 启动move_base -->
+    <include file="$(find move_base)/launch/move_base.launch">
+        <!-- 配置move_base，使用适合全向机器人的路径规划器 -->
+        <arg name="base_local_planner" value="dwa_local_planner/DWAPlannerROS"/>
+    </include>
+</launch>
+```
