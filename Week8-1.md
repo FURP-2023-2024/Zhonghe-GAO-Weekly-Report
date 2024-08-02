@@ -1,11 +1,17 @@
+## Navigation Pakcage Configuration 
+This week we tried mmany methods to configure a navigation package. 
+Our main idea was that a navigation package should include: 
+1. Node of robot base control
+2. Node of Slam
+3. Move_base package
+
+This is our first launch file:
 ### Create a launch file to achieve the robot's auto navigation
 ```
 <launch>
     <!-- 启动底盘控制节点 -->
     <node pkg="robort_base" type="roborts_base_node" name="roborts_base_node"/>
 
-    <!-- 启动坐标转换节点 -->
-    <node pkg="robort_base" type="chassis" name="chassis_node"/>
 
     <!-- 启动Cartographer SLAM节点 -->
     <include file="$(find catkin_ws_cartographer)/launch/cartographer.launch"/>
