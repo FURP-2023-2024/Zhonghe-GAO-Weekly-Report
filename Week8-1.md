@@ -27,3 +27,9 @@ This is our first launch file:
     </include>
 </launch>
 ```
+**However, nothing works**
+Then we want to apply the navgation package of turtlebot.
+Although we know how to deal with , not too much.
+In conclusion, we tried a lot of methods to build the navigation package of our robot, however, **nothing works**.
+
+
