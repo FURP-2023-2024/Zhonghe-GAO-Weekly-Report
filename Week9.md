@@ -19,6 +19,8 @@ In this repo, the navigation package is shown with the related launch and config
 
 <img width="368" alt="IAMET_L2" src="https://github.com/user-attachments/assets/3e547688-7fc5-4ac4-8087-740828c8a877">
 - Visulaized information on Rviz
+
+
 - Actual Navigation Performance 
 
 Overall navigation performance is suboptimal, primarily due to the following issues:
