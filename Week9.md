@@ -15,7 +15,7 @@ In this repo, the navigation package is shown with the related launch and config
 - my_navigation_pkg
   The navigation stack is established in this package with the  move_base.launch and other related config files, including move_base.yaml, global_cost_map.yaml, local_cost_map.yaml, planner.yaml, and amcl.yaml.
 ### Results and Discussion
--Map of IAMET_L2
+- Map of IAMET_L2
 
 <img width="368" alt="IAMET_L2" src="https://github.com/user-attachments/assets/3e547688-7fc5-4ac4-8087-740828c8a877">
 
