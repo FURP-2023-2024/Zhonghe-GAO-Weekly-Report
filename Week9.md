@@ -3,17 +3,17 @@
 Week 9 has been a remarkably productive week. We successfully set up the navigation stack and utilized te Cartographer algorithhm to complete the map construction of IAMET_L2, achieveing a certain degree of navigation functionality.
 In this repo, the navigation package is shown with the related launch and config files.
 ### Navigation Package
-- roborts_base
+- [roborts_base](https://github.com/FURP-2023-2024/Zhonghe-GAO-Weekly-Report/blob/main/base.launch)
   
    This package is located in catkin_ws, which including a launch file named as base.launch. This launch file could start the chassis and publish **/odom** topic.
-- rplidar_ros
+- [rplidar_ros](https://github.com/FURP-2023-2024/Zhonghe-GAO-Weekly-Report/blob/main/rplidar_a2m8.launch)
 
   The launch file in the "rpliidar" workspace called as rplidar_a2m8.launch is used to start laser and publish the **/scan** topic.
 - cartographer
 
-  In order to build the map, cartographer, as one of a SLAM algorithm, is deployed through adding cartographer.launch  and cartograper_config.lua . 
+  In order to build the map, cartographer, as one of a SLAM algorithm, is deployed through adding [cartographer.launch](https://github.com/FURP-2023-2024/Zhonghe-GAO-Weekly-Report/blob/main/cartographer.launch)  and [cartograper_config.lua](https://github.com/FURP-2023-2024/Zhonghe-GAO-Weekly-Report/blob/main/cartographer_config.lua). 
 - my_navigation_pkg
-  The navigation stack is established in this package with the  move_base.launch and other related config files, including move_base.yaml, global_cost_map.yaml, local_cost_map.yaml, planner.yaml, and amcl.yaml.
+  The navigation stack is established in this package with the  [move_base.launch](https://github.com/FURP-2023-2024/Zhonghe-GAO-Weekly-Report/blob/main/move_base.launch) and other related config files, including [move_base.yaml](https://github.com/FURP-2023-2024/Zhonghe-GAO-Weekly-Report/blob/main/move_base.yaml), [global_cost_map.yaml](https://github.com/FURP-2023-2024/Zhonghe-GAO-Weekly-Report/blob/main/global_costmap.yaml), [local_cost_map.yaml](https://github.com/FURP-2023-2024/Zhonghe-GAO-Weekly-Report/blob/main/local_costmap.yaml), [planner.yaml](https://github.com/FURP-2023-2024/Zhonghe-GAO-Weekly-Report/blob/main/planner.yaml), and [amcl.yaml](https://github.com/FURP-2023-2024/Zhonghe-GAO-Weekly-Report/blob/main/planner.yaml).
 ### Results and Discussion
 - Map of IAMET_L2
 
