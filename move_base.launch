@@ -1,0 +1,36 @@
+<launch>
+  <!-- 启动 move_base -->
+  <node name="move_base" pkg="move_base" type="move_base" output="screen">
+    <param name="base_global_planner" value="navfn/NavfnROS"/> <!-- 全局规划器 -->
+    <param name="base_local_planner" value="base_local_planner/TrajectoryPlannerROS"/> <!-- 局部规划器 -->
+    <param name="controller_frequency" value="2.0"/>
+    <param name="controller_patiente" value="5.0"/>
+    <rosparam command="load" file="$(find my_navigation_pkg)/config/planner.yaml"/>
+    <rosparam command="load" file="$(find my_navigation_pkg)/config/costmap_common_parameters.yaml"/>
+    <rosparam command="load" file="$(find my_navigation_pkg)/config/local_costmap.yaml"/>
+    <rosparam command="load" file="$(find my_navigation_pkg)/config/global_costmap.yaml"/>
+    <rosparam command="load" file="$(find my_navigation_pkg)/config/move_base.yaml"/>
+  </node>
+  
+
+  <!-- 启动 amcl -->
+  <node name="amcl" pkg="amcl" type="amcl" output="screen">
+    <rosparam command="load" file="$(find my_navigation_pkg)/config/amcl_params.yaml"/>
+    <param name="odom_frame_id" value="odom"/>
+    <param name="base_frame_id" value="base_link"/>
+    <param name="global_frame_id" value="map"/>
+    <param name="tf_buffer_size" value="5.0"/>
+  </node>
+
+  <!-- 启动 map_server -->
+  <arg name="map_file" default="/home/noetic/Desktop/IAMET_L2-1.yaml"/>
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" output="screen"/>
+
+  <!-- 启动 ROS TF 变换 -->
+  <node pkg="tf" type="static_transform_publisher" name="map_to_odom" args="0 0 0 0 0 0 map odom 100"/>
+  <node pkg="tf" type="static_transform_publisher" name="base_to_laser" args="0 0 0 0 0 0 base_link laser 100"/>
+
+  <!--
+  注意：你还需要一个节点发布odom到base_link的变换，例如一个里程计节点
+  -->
+</launch>

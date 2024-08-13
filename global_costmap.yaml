@@ -1,0 +1,26 @@
+# config/global_costmap.yaml
+
+global_costmap:
+  global_frame: map
+  robot_base_frame: base_link
+  update_frequency: 0.1
+  publish_frequency: 1.0
+  transform_tolerance: 5.0  # 增加公差时间
+  width: 200.0
+  height: 200.0
+  resolution: 0.05
+
+  # 激活滚动窗口
+  rolling_window: false
+
+
+  # 层配置用来使用地图
+  plugins:
+    - {name: "static_layer", type: "costmap_2d::StaticLayer"}
+    - {name: "obstacle_layer", type: "costmap_2d::ObstacleLayer"}
+    - {name: "inflation_layer", type: "costmap_2d::InflationLayer"}
+
+  # 障碍层的配置
+  obstacle_layer:
+    observation_sources: laser_scan_sensor  # 配置传感器
+    laser_scan_sensor: {sensor_frame: base_scan, data_type: LaserScan, topic: /scan, marking: true, clearing: true}

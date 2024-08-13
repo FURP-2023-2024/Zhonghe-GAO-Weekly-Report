@@ -1,0 +1,24 @@
+move_base:
+  base_global_planner: "navfn/NavfnROS"
+  base_local_planner: "dwa_local_planner/DWAPlannerROS"
+  controller_frequency: 5.0
+  planner_frequency: 1.0
+  recovery_behaviors:
+    - name: "clear_costmap"
+      type: "clear_costmap_recovery/ClearCostmapRecovery"
+    - name: "rotate_recovery"
+      type: "rotate_recovery/RotateRecovery"
+  xy_goal_tolerance: 0.2
+  yaw_goal_tolerance: 0.1
+  latch_xy_goal_tolerance: false
+
+
+clear_costmap_recovery:
+  reset_distance: 2.0
+
+rotate_recovery:
+  max_rotational_vel: 1.0
+  min_in_place_rotational_vel: 0.4
+  acc_lim_th: 3.2
+  tolerance: 0.5
+  frequency: 20.0
